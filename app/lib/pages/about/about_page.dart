@@ -1,11 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:localsend_app/gen/strings.g.dart';
-import 'package:localsend_app/pages/debug/debug_page.dart';
-import 'package:localsend_app/widget/custom_basic_appbar.dart';
-import 'package:localsend_app/widget/local_send_logo.dart';
-import 'package:localsend_app/widget/responsive_list_view.dart';
+import 'package:transfer_hub_app/gen/strings.g.dart';
+import 'package:transfer_hub_app/pages/debug/debug_page.dart';
+import 'package:transfer_hub_app/widget/custom_basic_appbar.dart';
+import 'package:transfer_hub_app/widget/local_send_logo.dart';
+import 'package:transfer_hub_app/widget/responsive_list_view.dart';
 import 'package:routerino/routerino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,12 +24,12 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).colorScheme.primary;
     return Scaffold(
-      appBar: basicLocalSendAppbar(t.aboutPage.title),
+      appBar: basicTransferHubAppbar(t.aboutPage.title),
       body: ResponsiveListView(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         children: [
           const SizedBox(height: 20),
-          const LocalSendLogo(withText: true),
+          const TransferHubLogo(withText: true),
           Text(
             '© ${DateTime.now().year} Tien Do Nam',
             textAlign: TextAlign.center,
@@ -38,9 +38,9 @@ class AboutPage extends StatelessWidget {
           Center(
             child: TextButton(
               onPressed: () async {
-                await launchUrl(Uri.parse('https://localsend.org'));
+                await launchUrl(Uri.parse('https://TransferHub.org'));
               },
-              child: const Text('localsend.org'),
+              child: const Text('TransferHub.org'),
             ),
           ),
           const SizedBox(height: 10),
@@ -135,19 +135,19 @@ class AboutPage extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () async {
-                  await launchUrl(Uri.parse('https://localsend.org'));
+                  await launchUrl(Uri.parse('https://TransferHub.org'));
                 },
                 child: const Text('Homepage'),
               ),
               TextButton(
                 onPressed: () async {
-                  await launchUrl(Uri.parse('https://github.com/localsend/localsend'), mode: LaunchMode.externalApplication);
+                  await launchUrl(Uri.parse('https://github.com/TransferHub/TransferHub'), mode: LaunchMode.externalApplication);
                 },
                 child: const Text('Source Code (Github)'),
               ),
               TextButton(
                 onPressed: () async {
-                  await launchUrl(Uri.parse('https://codeberg.org/localsend/localsend'), mode: LaunchMode.externalApplication);
+                  await launchUrl(Uri.parse('https://codeberg.org/TransferHub/TransferHub'), mode: LaunchMode.externalApplication);
                 },
                 child: const Text('Source Code (Codeberg)'),
               ),

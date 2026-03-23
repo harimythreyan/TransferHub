@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:localsend_app/gen/assets.gen.dart';
+import 'package:transfer_hub_app/gen/assets.gen.dart';
+import 'package:transfer_hub_app/gen/strings.g.dart';
 
-class LocalSendLogo extends StatelessWidget {
+class TransferHubLogo extends StatelessWidget {
   final bool withText;
 
-  const LocalSendLogo({required this.withText});
+  const TransferHubLogo({required this.withText});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,9 @@ class LocalSendLogo extends StatelessWidget {
       return Column(
         children: [
           logo,
-          const Text(
-            'LocalSend',
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          Text(
+            t.appName,
+            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
         ],

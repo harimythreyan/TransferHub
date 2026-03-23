@@ -7,25 +7,25 @@ import 'package:common/model/file_status.dart';
 import 'package:common/model/session_status.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:localsend_app/config/theme.dart';
-import 'package:localsend_app/gen/strings.g.dart';
-import 'package:localsend_app/model/state/server/receive_session_state.dart';
-import 'package:localsend_app/provider/network/send_provider.dart';
-import 'package:localsend_app/provider/network/server/server_provider.dart';
-import 'package:localsend_app/provider/progress_provider.dart';
-import 'package:localsend_app/provider/settings_provider.dart';
-import 'package:localsend_app/util/file_size_helper.dart';
-import 'package:localsend_app/util/file_speed_helper.dart';
-import 'package:localsend_app/util/native/open_file.dart';
-import 'package:localsend_app/util/native/open_folder.dart';
-import 'package:localsend_app/util/native/platform_check.dart';
-import 'package:localsend_app/util/native/taskbar_helper.dart';
-import 'package:localsend_app/util/ui/nav_bar_padding.dart';
-import 'package:localsend_app/widget/custom_basic_appbar.dart';
-import 'package:localsend_app/widget/custom_progress_bar.dart';
-import 'package:localsend_app/widget/dialogs/cancel_session_dialog.dart';
-import 'package:localsend_app/widget/dialogs/error_dialog.dart';
-import 'package:localsend_app/widget/file_thumbnail.dart';
+import 'package:transfer_hub_app/config/theme.dart';
+import 'package:transfer_hub_app/gen/strings.g.dart';
+import 'package:transfer_hub_app/model/state/server/receive_session_state.dart';
+import 'package:transfer_hub_app/provider/network/send_provider.dart';
+import 'package:transfer_hub_app/provider/network/server/server_provider.dart';
+import 'package:transfer_hub_app/provider/progress_provider.dart';
+import 'package:transfer_hub_app/provider/settings_provider.dart';
+import 'package:transfer_hub_app/util/file_size_helper.dart';
+import 'package:transfer_hub_app/util/file_speed_helper.dart';
+import 'package:transfer_hub_app/util/native/open_file.dart';
+import 'package:transfer_hub_app/util/native/open_folder.dart';
+import 'package:transfer_hub_app/util/native/platform_check.dart';
+import 'package:transfer_hub_app/util/native/taskbar_helper.dart';
+import 'package:transfer_hub_app/util/ui/nav_bar_padding.dart';
+import 'package:transfer_hub_app/widget/custom_basic_appbar.dart';
+import 'package:transfer_hub_app/widget/custom_progress_bar.dart';
+import 'package:transfer_hub_app/widget/dialogs/cancel_session_dialog.dart';
+import 'package:transfer_hub_app/widget/dialogs/error_dialog.dart';
+import 'package:transfer_hub_app/widget/file_thumbnail.dart';
 import 'package:refena_flutter/refena_flutter.dart';
 import 'package:routerino/routerino.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
@@ -238,7 +238,7 @@ class _ProgressPageState extends State<ProgressPage> with Refena {
       },
       canPop: false,
       child: Scaffold(
-        appBar: widget.showAppBar ? basicLocalSendAppbar(title) : null,
+        appBar: widget.showAppBar ? basicTransferHubAppbar(title) : null,
         body: Stack(
           children: [
             ListView.builder(

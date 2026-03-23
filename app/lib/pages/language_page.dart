@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:localsend_app/gen/strings.g.dart';
-import 'package:localsend_app/provider/settings_provider.dart';
-import 'package:localsend_app/widget/custom_basic_appbar.dart';
-import 'package:localsend_app/widget/responsive_list_view.dart';
+import 'package:transfer_hub_app/gen/strings.g.dart';
+import 'package:transfer_hub_app/provider/settings_provider.dart';
+import 'package:transfer_hub_app/widget/custom_basic_appbar.dart';
+import 'package:transfer_hub_app/widget/responsive_list_view.dart';
 import 'package:refena_flutter/refena_flutter.dart';
 
 class LanguagePage extends StatefulWidget {
@@ -28,7 +28,7 @@ class _LanguagePageState extends State<LanguagePage> {
     final t = Translations.of(context);
     final activeLocale = context.ref.watch(settingsProvider.select((s) => s.locale));
     return Scaffold(
-      appBar: basicLocalSendAppbar(t.sendTab.selection.title),
+      appBar: basicTransferHubAppbar(t.sendTab.selection.title),
       body: ResponsiveListView(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         children: [

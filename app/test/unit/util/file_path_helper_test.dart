@@ -1,4 +1,4 @@
-import 'package:localsend_app/util/file_path_helper.dart';
+import 'package:transfer_hub_app/util/file_path_helper.dart';
 import 'package:test/test.dart';
 
 void main() {

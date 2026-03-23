@@ -5,32 +5,32 @@ import 'package:common/constants.dart';
 import 'package:common/model/device.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:localsend_app/config/theme.dart';
-import 'package:localsend_app/gen/strings.g.dart';
-import 'package:localsend_app/model/persistence/color_mode.dart';
-import 'package:localsend_app/pages/about/about_page.dart';
-import 'package:localsend_app/pages/changelog_page.dart';
-import 'package:localsend_app/pages/donation/donation_page.dart';
-import 'package:localsend_app/pages/language_page.dart';
-import 'package:localsend_app/pages/settings/network_interfaces_page.dart';
-import 'package:localsend_app/pages/tabs/settings_tab_controller.dart';
-import 'package:localsend_app/provider/settings_provider.dart';
-import 'package:localsend_app/provider/version_provider.dart';
-import 'package:localsend_app/util/alias_generator.dart';
-import 'package:localsend_app/util/device_type_ext.dart';
-import 'package:localsend_app/util/native/macos_channel.dart';
-import 'package:localsend_app/util/native/pick_directory_path.dart';
-import 'package:localsend_app/util/native/platform_check.dart';
-import 'package:localsend_app/widget/custom_dropdown_button.dart';
-import 'package:localsend_app/widget/dialogs/encryption_disabled_notice.dart';
-import 'package:localsend_app/widget/dialogs/pin_dialog.dart';
-import 'package:localsend_app/widget/dialogs/quick_save_from_favorites_notice.dart';
-import 'package:localsend_app/widget/dialogs/quick_save_notice.dart';
-import 'package:localsend_app/widget/dialogs/text_field_tv.dart';
-import 'package:localsend_app/widget/dialogs/text_field_with_actions.dart';
-import 'package:localsend_app/widget/labeled_checkbox.dart';
-import 'package:localsend_app/widget/local_send_logo.dart';
-import 'package:localsend_app/widget/responsive_list_view.dart';
+import 'package:transfer_hub_app/config/theme.dart';
+import 'package:transfer_hub_app/gen/strings.g.dart';
+import 'package:transfer_hub_app/model/persistence/color_mode.dart';
+import 'package:transfer_hub_app/pages/about/about_page.dart';
+import 'package:transfer_hub_app/pages/changelog_page.dart';
+import 'package:transfer_hub_app/pages/donation/donation_page.dart';
+import 'package:transfer_hub_app/pages/language_page.dart';
+import 'package:transfer_hub_app/pages/settings/network_interfaces_page.dart';
+import 'package:transfer_hub_app/pages/tabs/settings_tab_controller.dart';
+import 'package:transfer_hub_app/provider/settings_provider.dart';
+import 'package:transfer_hub_app/provider/version_provider.dart';
+import 'package:transfer_hub_app/util/alias_generator.dart';
+import 'package:transfer_hub_app/util/device_type_ext.dart';
+import 'package:transfer_hub_app/util/native/macos_channel.dart';
+import 'package:transfer_hub_app/util/native/pick_directory_path.dart';
+import 'package:transfer_hub_app/util/native/platform_check.dart';
+import 'package:transfer_hub_app/widget/custom_dropdown_button.dart';
+import 'package:transfer_hub_app/widget/dialogs/encryption_disabled_notice.dart';
+import 'package:transfer_hub_app/widget/dialogs/pin_dialog.dart';
+import 'package:transfer_hub_app/widget/dialogs/quick_save_from_favorites_notice.dart';
+import 'package:transfer_hub_app/widget/dialogs/quick_save_notice.dart';
+import 'package:transfer_hub_app/widget/dialogs/text_field_tv.dart';
+import 'package:transfer_hub_app/widget/dialogs/text_field_with_actions.dart';
+import 'package:transfer_hub_app/widget/labeled_checkbox.dart';
+import 'package:transfer_hub_app/widget/local_send_logo.dart';
+import 'package:transfer_hub_app/widget/responsive_list_view.dart';
 import 'package:refena_flutter/refena_flutter.dart';
 import 'package:routerino/routerino.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -91,7 +91,7 @@ class SettingsTab extends StatelessWidget {
                         onTap: () => vm.onTapLanguage(context),
                       ),
                       if (checkPlatformIsDesktop()) ...[
-                        /// Wayland does window position handling, so there's no need for it. See [https://github.com/localsend/localsend/issues/544]
+                        /// Wayland does window position handling, so there's no need for it. See [https://github.com/TransferHub/TransferHub/issues/544]
                         if (vm.advanced && checkPlatformIsNotWaylandDesktop())
                           _BooleanEntry(
                             label: defaultTargetPlatform == TargetPlatform.windows
@@ -511,7 +511,7 @@ class SettingsTab extends StatelessWidget {
                         buttonLabel: t.general.open,
                         onTap: () async {
                           await launchUrl(
-                            Uri.parse('https://localsend.org/privacy'),
+                            Uri.parse('https://TransferHub.org/privacy'),
                             mode: LaunchMode.externalApplication,
                           );
                         },
@@ -545,7 +545,7 @@ class SettingsTab extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const LocalSendLogo(withText: true),
+                  const TransferHubLogo(withText: true),
                   const SizedBox(height: 5),
                   ref
                       .watch(versionProvider)
@@ -762,7 +762,7 @@ extension on ColorMode {
   String get humanName {
     return switch (this) {
       ColorMode.system => t.settingsTab.general.colorOptions.system,
-      ColorMode.localsend => t.appName,
+      ColorMode.TransferHub => t.appName,
       ColorMode.oled => t.settingsTab.general.colorOptions.oled,
       ColorMode.yaru => 'Yaru',
     };

@@ -10,22 +10,22 @@ import 'package:common/model/file_type.dart';
 import 'package:common/model/session_status.dart';
 import 'package:common/util/sleep.dart';
 import 'package:flutter/material.dart';
-import 'package:localsend_app/model/cross_file.dart';
-import 'package:localsend_app/model/send_mode.dart';
-import 'package:localsend_app/model/state/send/send_session_state.dart';
-import 'package:localsend_app/model/state/send/sending_file.dart';
-import 'package:localsend_app/pages/home_page.dart';
-import 'package:localsend_app/pages/progress_page.dart';
-import 'package:localsend_app/pages/send_page.dart';
-import 'package:localsend_app/provider/device_info_provider.dart';
-import 'package:localsend_app/provider/http_provider.dart';
-import 'package:localsend_app/provider/progress_provider.dart';
-import 'package:localsend_app/provider/selection/selected_sending_files_provider.dart';
-import 'package:localsend_app/provider/settings_provider.dart';
-import 'package:localsend_app/rust/api/http.dart' as rust_http;
-import 'package:localsend_app/rust/api/model.dart' as rust_model;
-import 'package:localsend_app/util/rust.dart';
-import 'package:localsend_app/widget/dialogs/pin_dialog.dart';
+import 'package:transfer_hub_app/model/cross_file.dart';
+import 'package:transfer_hub_app/model/send_mode.dart';
+import 'package:transfer_hub_app/model/state/send/send_session_state.dart';
+import 'package:transfer_hub_app/model/state/send/sending_file.dart';
+import 'package:transfer_hub_app/pages/home_page.dart';
+import 'package:transfer_hub_app/pages/progress_page.dart';
+import 'package:transfer_hub_app/pages/send_page.dart';
+import 'package:transfer_hub_app/provider/device_info_provider.dart';
+import 'package:transfer_hub_app/provider/http_provider.dart';
+import 'package:transfer_hub_app/provider/progress_provider.dart';
+import 'package:transfer_hub_app/provider/selection/selected_sending_files_provider.dart';
+import 'package:transfer_hub_app/provider/settings_provider.dart';
+import 'package:transfer_hub_app/rust/api/http.dart' as rust_http;
+import 'package:transfer_hub_app/rust/api/model.dart' as rust_model;
+import 'package:transfer_hub_app/util/rust.dart';
+import 'package:transfer_hub_app/widget/dialogs/pin_dialog.dart';
 import 'package:logging/logging.dart';
 import 'package:refena_flutter/refena_flutter.dart';
 import 'package:rhttp/rhttp.dart';
@@ -242,11 +242,11 @@ class SendNotifier extends Notifier<Map<String, SendSessionState>> {
     } else {
       try {
         fileMap = response.response!.files;
-        final sessionId = response.response!.sessionId;
+        final remoteSessionId = response.response!.sessionId;
         state = state.updateSession(
           sessionId: sessionId,
           state: (s) => s?.copyWith(
-            remoteSessionId: sessionId,
+            remoteSessionId: remoteSessionId,
           ),
         );
       } catch (e) {

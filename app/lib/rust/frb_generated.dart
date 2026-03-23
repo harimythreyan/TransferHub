@@ -7,14 +7,14 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
-import 'package:localsend_app/rust/api/crypto.dart';
-import 'package:localsend_app/rust/api/http.dart';
-import 'package:localsend_app/rust/api/logging.dart';
-import 'package:localsend_app/rust/api/model.dart';
-import 'package:localsend_app/rust/api/stream.dart';
-import 'package:localsend_app/rust/api/webrtc.dart';
-import 'package:localsend_app/rust/frb_generated.dart';
-import 'package:localsend_app/rust/frb_generated.io.dart' if (dart.library.js_interop) 'frb_generated.web.dart';
+import 'package:transfer_hub_app/rust/api/crypto.dart';
+import 'package:transfer_hub_app/rust/api/http.dart';
+import 'package:transfer_hub_app/rust/api/logging.dart';
+import 'package:transfer_hub_app/rust/api/model.dart';
+import 'package:transfer_hub_app/rust/api/stream.dart';
+import 'package:transfer_hub_app/rust/api/webrtc.dart';
+import 'package:transfer_hub_app/rust/frb_generated.dart';
+import 'package:transfer_hub_app/rust/frb_generated.io.dart' if (dart.library.js_interop) 'frb_generated.web.dart';
 import 'package:uuid/uuid.dart';
 
 /// Main entrypoint of the Rust API
@@ -74,7 +74,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   int get rustContentHash => -137920352;
 
   static const kDefaultExternalLibraryLoaderConfig = ExternalLibraryLoaderConfig(
-    stem: 'rust_lib_localsend_app',
+    stem: 'rust_lib_transfer_hub_app',
     ioDirectory: 'rust/target/release/',
     webPrefix: 'pkg/',
   );

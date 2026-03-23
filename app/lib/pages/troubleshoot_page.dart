@@ -2,15 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:localsend_app/gen/strings.g.dart';
-import 'package:localsend_app/provider/settings_provider.dart';
-import 'package:localsend_app/util/native/cmd_helper.dart';
-import 'package:localsend_app/util/native/macos_channel.dart' as macos_channel;
-import 'package:localsend_app/util/native/platform_check.dart';
-import 'package:localsend_app/widget/custom_basic_appbar.dart';
-import 'package:localsend_app/widget/custom_icon_button.dart';
-import 'package:localsend_app/widget/dialogs/not_available_on_platform_dialog.dart';
-import 'package:localsend_app/widget/responsive_list_view.dart';
+import 'package:transfer_hub_app/gen/strings.g.dart';
+import 'package:transfer_hub_app/provider/settings_provider.dart';
+import 'package:transfer_hub_app/util/native/cmd_helper.dart';
+import 'package:transfer_hub_app/util/native/macos_channel.dart' as macos_channel;
+import 'package:transfer_hub_app/util/native/platform_check.dart';
+import 'package:transfer_hub_app/widget/custom_basic_appbar.dart';
+import 'package:transfer_hub_app/widget/custom_icon_button.dart';
+import 'package:transfer_hub_app/widget/dialogs/not_available_on_platform_dialog.dart';
+import 'package:transfer_hub_app/widget/responsive_list_view.dart';
 import 'package:refena_flutter/refena_flutter.dart';
 
 class TroubleshootPage extends StatelessWidget {
@@ -20,7 +20,7 @@ class TroubleshootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final settings = context.ref.watch(settingsProvider);
     return Scaffold(
-      appBar: basicLocalSendAppbar(t.troubleshootPage.title),
+      appBar: basicTransferHubAppbar(t.troubleshootPage.title),
       body: ResponsiveListView(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
         children: [
@@ -35,8 +35,8 @@ class TroubleshootPage extends StatelessWidget {
                 TargetPlatform.windows: _CommandFixAction(
                   adminPrivileges: true,
                   commands: [
-                    'netsh advfirewall firewall add rule name="LocalSend" dir=in action=allow protocol=TCP localport=${settings.port}',
-                    'netsh advfirewall firewall add rule name="LocalSend" dir=in action=allow protocol=UDP localport=${settings.port}',
+                    'netsh advfirewall firewall add rule name="TransferHub" dir=in action=allow protocol=TCP localport=${settings.port}',
+                    'netsh advfirewall firewall add rule name="TransferHub" dir=in action=allow protocol=UDP localport=${settings.port}',
                   ],
                 ),
               },

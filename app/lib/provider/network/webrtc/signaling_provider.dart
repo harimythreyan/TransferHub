@@ -4,16 +4,16 @@ import 'package:common/constants.dart';
 import 'package:common/model/device.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:flutter/foundation.dart';
-import 'package:localsend_app/provider/device_info_provider.dart';
-import 'package:localsend_app/provider/favorites_provider.dart';
-import 'package:localsend_app/provider/network/nearby_devices_provider.dart';
-import 'package:localsend_app/provider/network/webrtc/webrtc_receiver.dart';
-import 'package:localsend_app/provider/persistence_provider.dart';
-import 'package:localsend_app/provider/security_provider.dart';
-import 'package:localsend_app/provider/settings_provider.dart';
-import 'package:localsend_app/rust/api/crypto.dart' as crypto;
-import 'package:localsend_app/rust/api/model.dart' as rust;
-import 'package:localsend_app/rust/api/webrtc.dart';
+import 'package:transfer_hub_app/provider/device_info_provider.dart';
+import 'package:transfer_hub_app/provider/favorites_provider.dart';
+import 'package:transfer_hub_app/provider/network/nearby_devices_provider.dart';
+import 'package:transfer_hub_app/provider/network/webrtc/webrtc_receiver.dart';
+import 'package:transfer_hub_app/provider/persistence_provider.dart';
+import 'package:transfer_hub_app/provider/security_provider.dart';
+import 'package:transfer_hub_app/provider/settings_provider.dart';
+import 'package:transfer_hub_app/rust/api/crypto.dart' as crypto;
+import 'package:transfer_hub_app/rust/api/model.dart' as rust;
+import 'package:transfer_hub_app/rust/api/webrtc.dart';
 import 'package:refena_flutter/refena_flutter.dart';
 
 part 'signaling_provider.mapper.dart';
@@ -47,8 +47,8 @@ class SignalingService extends ReduxNotifier<SignalingState> {
   @override
   SignalingState init() {
     return SignalingState(
-      signalingServers: _persistence.getSignalingServers() ?? ['wss://public.localsend.org/v1/ws'],
-      stunServers: _persistence.getStunServers() ?? ['stun:stun.localsend.org:5349'],
+      signalingServers: _persistence.getSignalingServers() ?? ['wss://public.TransferHub.org/v1/ws'],
+      stunServers: _persistence.getStunServers() ?? ['stun:stun.TransferHub.org:5349'],
       connections: {},
     );
   }
@@ -84,7 +84,7 @@ class _SetupSignalingConnection extends AsyncGlobalAction {
 
     LsSignalingConnection? connection;
     final stream = connect(
-      uri: 'wss://public.localsend.org/v1/ws',
+      uri: 'wss://public.TransferHub.org/v1/ws',
       info: ProposingClientInfo(
         alias: settings.alias,
         version: protocolVersion,
